@@ -1,0 +1,64 @@
+@font-face {
+    font-family: 'Chrono'; /* nom que vous utiliserez pour utiliser la police */
+    src: url('Open_24.ttf');
+}
+
+#cercle
+{
+background-color:black; /*On ajoute un fond noir*/
+height:500px; /* 500 pixel de hauteur*/
+width:500px; /* 500 pixel de largeur*/
+margin:auto; /*centrer le cercle au milieux */
+border-radius:500px; /* On arrondit notre div */
+border:10px solid grey;  /* On ajoute une bordure de 10 pixel grise */
+}
+
+#panneau
+{
+background-color:grey;  /* Fond gris */
+height:135px;
+width:350px;
+ 
+/* Centrer horizontalement */
+margin-left:auto; 
+margin-right:auto;
+ 
+/*Centrer verticalement*/
+margin-top:182.5px;
+ 
+/*Arondit les angles*/
+border-radius:5px;
+ 
+/*Ajoute la police que nous avions intégrer*/
+font-family:Chrono;
+ 
+/*Définit la couleur et la taille du texte */
+color:white;
+font-size:100px;
+ 
+/*Aligne le texte au centre*/
+text-align:center;
+}
+
+
+#gri_bouton
+{
+margin:auto;
+width:500px;
+text-align:center
+}
+ 
+.bouton
+{
+background:#F94D58;
+padding:3%;
+font-size:large;
+border-radius:10px;
+font-family:Verdana;
+width:100%
+}
+ 
+.cont_bouton
+{
+width:33%;
+}

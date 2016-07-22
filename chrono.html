@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<!--https://www.zirolis.com/tuto-u/R%C3%A9aliser%20un%20chronom%C3%A8tre%20avec%20HTML%20CSS%20et%20JQuery-49-->
+<head>
+    <meta charset="UTF-8">
+    <title>chrono</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="chrono.css">
+</head>
+<body>
+	<!--<div id="cercle" > Notre cercle
+	 
+	</div> -->
+
+	<div id="cercle" >
+	 
+	<div id="panneau"> <!--  Notre panneau qui affichera le temps -->
+	 
+	<span id="m">00</span>:<span id="s">00</span>
+	 
+	</div>
+	 
+	</div>
+
+	<table id="gri_bouton" cellspacing="20"> <!--  Contient tout nos bouton -->
+		<tr>
+		    <td class="cont_bouton">
+		    <div id="start" class="bouton"> Start </div>
+		    </td>
+		     
+		    <td class="cont_bouton">
+		    <div id="pause" class="bouton"> Pause </div>
+		    </td>
+		 
+		    <td class="cont_bouton">
+		    <div id="reset" class="bouton" > Reset </div>
+		    </td>
+		 
+		     
+		 
+		</tr>
+	</table>
+</body>
+
+<script src="jquery.js"></script>
+<script type="text/javascript" src="jquery-2.2.2.min.js"></script>>
+<script>
+var h = 0; // Heure
+var m = 0; // Minute
+var s = 0; // Seconde
+ 
+var temps; // Contiendra l'exécution de notre code 
+var bo = true; // Permettra de contrôler l'exécution du code
+
+function dchiffre(nb)
+{
+    if(nb < 10) // si le chiffre indiqué est inférieurs à dix ...
+    {
+        nb = "0"+nb; // .. on ajoute un zéro devant avant affichage
+    }
+     
+    return nb;
+}
+
+$("#start").click(function()
+{
+     
+// On ajoute un setInterval dans notre variable temps
+ 
+        temps = setInterval(function()
+        {
+            s++; // On incrémente le nombre de seconde
+             
+            if(s > 59) // Si s est supérieur à 59 ..
+            {
+                m++; // .. On incrémente le nombre de minute
+                s = 0; // et on affecte 0 a notre variable seconde
+            }
+             
+            if(m > 59) // Si m est supérieur à 59 ..
+            {
+                h++; // .. On incrémente le nombre d'heure
+                m = 0; // et on affecte 0 à notre variable minute
+            }
+             
+                        // On affiche le nombre de seconde dans le span s
+            $("#s").html(dchiffre(s)); 
+             
+                        // On affiche le nombre de minute dans le span m
+                        $("#m").html(dchiffre(m)); 
+ 
+                        // On affiche le nombre d'heures dans le span h
+            $("#h").html(dchiffre(h));
+             
+             
+        },1000); // on exécute ce code toute les secondes
+         
+         
+     
+});
+
+$("#start").click(function()
+{
+    if(bo) // On controle bo pour savoir si un autre Intervalle est lancé
+    {
+        temps = setInterval(function()
+        {
+            s++;
+             
+            if(s > 59)
+            {
+                m++;
+                s = 0;
+            }
+             
+            if(m > 59)
+            {
+                h++;
+                m = 0;
+            }
+             
+            $("#s").html(dchiffre(s));
+            $("#m").html(dchiffre(m));
+            $("#h").html(dchiffre(h));
+             
+             
+        },1000);
+         
+                // On affecte false à bo pour empécher un second Intervalle de se lancer
+        bo = false; 
+    }
+});
+
+$("#pause").click(function()
+{
+     
+    clearInterval(temps); // On stop l'intervalle lancer
+     
+       // On affiche les variable dans les conteneur dédié
+    $("#s").html(dchiffre(s));
+    $("#m").html(dchiffre(m));
+    $("#h").html(dchiffre(h));
+     
+       // Affecter true a bo pour indiquer qu'il n'y a plus d'Intervalle actif
+    bo = true
+});
+
+
+$("#reset").click(function()
+{
+     
+    s = 0;
+    m = 0;
+    h = 0;
+     
+    $("#s").html("00");
+    $("#m").html("00");
+    $("#h").html("00");
+     
+    if(bo == false)
+    {
+    clearInterval(temps);
+    }
+     
+    bo = true;
+     
+});
+
+</script>
+
+</html>
+
+
