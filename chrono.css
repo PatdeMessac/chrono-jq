@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Chrono'; /* nom que vous utiliserez pour utiliser la police */
-    src: url('Open_24.ttf');
+    src: url('Open 24 Display St.ttf');
 }
 
 #cercle
@@ -30,7 +30,7 @@ margin-top:182.5px;
 border-radius:5px;
  
 /*Ajoute la police que nous avions intégrer*/
-font-family:Chrono;
+font-family:'Chrono';
  
 /*Définit la couleur et la taille du texte */
 color:white;
@@ -52,9 +52,9 @@ text-align:center
 {
 background:#F94D58;
 padding:3%;
-font-size:large;
+font-size:30px;
 border-radius:10px;
-font-family:Verdana;
+font-family:'Chrono';
 width:100%
 }
  
