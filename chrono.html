@@ -45,7 +45,7 @@
 <script src="jquery.js"></script>
 <script type="text/javascript" src="jquery-2.2.2.min.js"></script>
 <script>
-var h = 0; // Heure
+//var h = 0; // Heure
 var m = 0; // Minute
 var s = 0; // Seconde
  
@@ -61,13 +61,11 @@ function dchiffre(nb)
      
     return nb;
 }
-
+/*
 $("#start").click(function()
-{
-     
+{     
 // On ajoute un setInterval dans notre variable temps
- 
-        temps = setInterval(function()
+       temps = setInterval(function()
         {
             s++; // On incrémente le nombre de seconde
             if(s > 59) // Si s est supérieur à 59 ..
@@ -88,7 +86,7 @@ $("#start").click(function()
             $("#h").html(dchiffre(h)); 
              },1000); // on exécute ce code toutes les secondes
            });
-
+*/
 $("#start").click(function()
 {
     if(bo) // On controle bo pour savoir si un autre Intervalle est lancé
@@ -104,15 +102,15 @@ $("#start").click(function()
              
             if(m > 59)
             {
-                h++;
+                //h++;si minutes > 59 = retour à 0
                 m = 0;
             }
              
             $("#s").html(dchiffre(s));
             $("#m").html(dchiffre(m));
-            $("#h").html(dchiffre(h));
+            //$("#h").html(dchiffre(h)); heure pas affichée
              
-        }); //enlever ,1000s pour éviter doublon de seconde sur "#start"
+        }, 1000); 
          
                 // On affecte false à bo pour empécher un second Intervalle de se lancer
         bo = false; 
